@@ -38,10 +38,13 @@ runs:
       working-directory: ./spec/decidim_dummy_app/
       env:
         RAILS_ENV: test
+        DISABLE_SPRING: 1
       if: ${{ fromJSON(inputs.use-cached-app) || fromJSON(inputs.load-schema) }}
     - run: bundle exec rspec
       name: RSpec
       shell: "bash"
+      env:
+        DISABLE_SPRING: 1
     - uses: codecov/codecov-action@v3
     - uses: actions/upload-artifact@v3
       if: always()
