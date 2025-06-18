@@ -46,7 +46,7 @@ runs:
       env:
         DISABLE_SPRING: 1
     - uses: codecov/codecov-action@v3
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: screenshots
